@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: '微软雅黑','microsoft yahei';
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+body .main {
+    height: 100%;
+}
+a, a:hover, a:active, a:visited{
+    cursor: default;
+    color: #ccc;
+    text-decoration: none;
+}
+.view{
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    height: calc(100% - 100px);
+    max-height: calc(100% - 100px);
+    overflow: auto;
+}
+/*.bounce-transition {*/
+    /*transition: opacity ease-in .2s;*/
+/*}*/
