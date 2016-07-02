@@ -21,6 +21,9 @@ a, a:hover, a:active, a:visited{
     color: #ccc;
     text-decoration: none;
 }
+ul {
+    list-style: none;
+}
 .view{
     position: absolute;
     width: 100%;
@@ -29,6 +32,41 @@ a, a:hover, a:active, a:visited{
     max-height: calc(100% - 100px);
     overflow: auto;
 }
-/*.bounce-transition {*/
-    /*transition: opacity ease-in .2s;*/
-/*}*/
+.clearfix:after{
+    content: '\20';
+    display: block;
+    clear: both;
+}
+.text-white{
+    color: #fff;
+}
+.text-black{
+    color: #000;
+}
+.text-green {
+    color: #3B9A82;
+}
+.bg-white{
+    background-color: #fff;
+}
+.bg-black{
+    background-color: #000;
+}
+.bg-green{
+    background-color: #3B9A82;
+}
+.wy-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+.wy-btn:hover{
+    box-shadow: inset 1px 1px 5px #ccc;
+}
+.wy-btn:active{
+    box-shadow: inset 2px 2px 5px #ccc;
+}
+.wy-btn-radius {
+    border-radius: 100%;
+}
