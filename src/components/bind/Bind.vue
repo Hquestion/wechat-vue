@@ -29,6 +29,7 @@
         text-align: center;
         background-color: #41b29c;
         padding-top: 30px;
+        padding-bottom: 50px;
         p.profile > img{
             width: toPercent(124 / 525);
         }

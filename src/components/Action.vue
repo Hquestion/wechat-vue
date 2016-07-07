@@ -15,6 +15,16 @@
         },
         components:{
             
+        },
+        init: function(){
+            this.$emit('INIT_APP_TITLE', {
+                title: '我的动态'
+            });
+        },
+        ready: function(){
+            this.$dispatch('INIT_APP_TITLE', {
+                title: '我的动态'
+            });
         }
     }
 </script>

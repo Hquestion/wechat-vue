@@ -4,6 +4,8 @@ $baseWidth: 525;
 $white: #fff;
 $green: #3B9A82;
 $black: #000;
+$grey: #ccc;
+$orange: #E9D445;
 
 @function toPercent($n){
   @return $n * 100%;
