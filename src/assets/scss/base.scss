@@ -1,11 +1,13 @@
 $baseFontSize: 18px;
 $baseFontFamily: '微软雅黑','microsoft yahei','Arial';
 $baseWidth: 525;
-$white: #fff;
+$white: #FFF;
 $green: #3B9A82;
 $black: #000;
-$grey: #ccc;
-$orange: #E9D445;
+$grey: #CCC;
+$golden: #E9D445;
+$bgGrey: #EFEEEA;
+$orange: #F69200;
 
 @function toPercent($n){
   @return $n * 100%;

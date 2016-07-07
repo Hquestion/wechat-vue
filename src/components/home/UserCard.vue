@@ -10,7 +10,7 @@
                     <img src="../../assets/img/vip.png" ng-show='user.isVip'>
                 </div>
                 <p>
-                    <span v-text='user.schoolName'></span>·<span v-text='user.className'></span>
+                    <span v-text='user.schoolName'></span><span class="point"></span><span v-text='user.className'></span>
                 </p>
                 <p>
                     积分：<span v-text='user.points'></span><span class="vip-level" v-text='vipLevelText'></span>
@@ -87,10 +87,18 @@
                 }
                 p{
                     padding-top: 5px;
+                    .point {
+                        display: inline-block;
+                        width: 5px;
+                        height: 5px;
+                        background: $white;
+                        border-radius: 5px;
+                        margin: 5px;
+                    }
                     span.vip-level {
                         margin-left: 10px;
                         font-size: 18px;
-                        color: $orange;
+                        color: $golden;
                     }
                 }
             }

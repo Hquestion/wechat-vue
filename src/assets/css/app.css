@@ -14,6 +14,7 @@ body{
     height: 100%;
     -webkit-user-select: none;
     user-select:none;
+    background: #EFEEEA;
 }
 body .main {
     height: 100%;
@@ -54,6 +55,68 @@ ul {
 }
 .pull-right{
     float: right;
+}
+.t-center{
+    text-align: center;
+}
+.t_overflow {
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.row{
+    display: block;
+}
+.row:after{
+    content: '\20';
+    clear: both;
+    display: block;
+}
+.row .col{
+    float: left;
+    display: block;
+    padding: 5px;
+}
+.row .col-1 {
+    width: 8.33333%;
+}
+.row .col-2 {
+    width: 16.66666%;
+}
+.row .col-2-4 {
+    width: 20%;
+}
+.row .col-3 {
+    width: 25%;
+}
+.row .col-4 {
+    width: 33.33333%;
+}
+.row .col-5 {
+    width: 41.66666%;
+}
+.row .col-6 {
+    width: 50%;
+}
+.row .col-7 {
+    width: 58.33333%;
+}
+.row .col-8 {
+    width: 66.66666%;
+}
+.row .col-9 {
+    width: 75%;
+}
+.row .col-10 {
+    width: 83.33333%;
+}
+.row .col-11 {
+    width: 91.66666%;
+}
+.row .col-12 {
+    width: 100%;
 }
 .wy-btn {
     border: none;

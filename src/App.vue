@@ -81,6 +81,7 @@
         top: 50px;
         height: calc(100% - 110px);
         max-height: calc(100% - 110px);
+        padding-bottom: 10px;
         overflow: auto;
         overflow-scrolling: touch;
         -webkit-overflow-scrolling : touch;
