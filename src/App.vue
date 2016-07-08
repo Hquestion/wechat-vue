@@ -1,5 +1,5 @@
 <template>
-    <div class="app" @click='docClicked()'>
+    <div class="app">
         <mt-header :title="pageTitle" fixed :class="{hide: hideHeader}">
             <mt-button icon="back" slot="left" @click="goBack()">返回</mt-button>
             <mt-button icon="more" slot="right"></mt-button>
@@ -7,23 +7,23 @@
         <router-view class="view animated" keep-alive transition="bounce" :class="{'hide-header': hideHeader}"></router-view>
         <mt-tabbar :selected.sync="selected" fixed>
             <mt-tab-item id="home" v-link="{path: '/'}">
-                <img slot="icon" src="./assets/logo.png">
+                <div slot='icon' class="icon home-icon"></div>
                 主页
             </mt-tab-item>
             <mt-tab-item id="action" v-link="{path: '/action'}">
-                <img slot="icon" src="./assets/logo.png">
+                <div slot='icon' class="icon action-icon"></div>
                 动态
             </mt-tab-item>
             <mt-tab-item id="analysis" v-link="{path: '/analysis'}">
-                <img slot="icon" src="./assets/logo.png">
+                <div slot='icon' class="icon analysis-icon"></div>
                 分析
             </mt-tab-item>
             <mt-tab-item id="exercise" v-link="{path: '/exercise'}">
-                <img slot="icon" src="./assets/logo.png">
+                <div slot='icon' class="icon exercise-icon"></div>
                 练习
             </mt-tab-item>
             <mt-tab-item id="mine"  v-link="{path: '/mine'}">
-                <img slot="icon" src="./assets/logo.png">
+                <div slot='icon' class="icon mine-icon"></div>
                 我的
             </mt-tab-item>
         </mt-tabbar>
@@ -33,6 +33,7 @@
 <script>
     import { initTitle } from './vuex/actions';
     import { getAppTitle } from './vuex/getters';
+    import { Indicator } from 'mint-ui';
     export default {
         computed: {
             selected: function(){
@@ -48,13 +49,7 @@
         methods: {
             goBack: function(){
                 history.go(-1);
-            },
-            docClicked: function(){
-                this.$broadcast('DOC_CLICKED');
             }
-        },
-        init: function(){
-            console.log('app is init...');
         }
     }
 </script>
@@ -90,5 +85,43 @@
         top: 0;
         height: calc(100% - 60px);
         max-height: calc(100% - 60px);
+    }
+    .icon {
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        &.home-icon {
+            background-image: url(./assets/img/home.png);
+        }
+        &.action-icon {
+            background-image: url(./assets/img/action.png);
+        }
+        &.analysis-icon {
+            background-image: url(./assets/img/analysis-nav.png);
+        }
+        &.exercise-icon {
+            background-image: url(./assets/img/exercise-nav.png);
+        }
+        &.mine-icon {
+            background-image: url(./assets/img/mine.png);
+        }
+    }
+    .is-selected .icon{
+        &.home-icon {
+            background-image: url(./assets/img/home-active.png);
+        }
+        &.action-icon {
+            background-image: url(./assets/img/action-active.png);
+        }
+        &.analysis-icon {
+            background-image: url(./assets/img/analysis-active.png);
+        }
+        &.exercise-icon {
+            background-image: url(./assets/img/exercise-active.png);
+        }
+        &.mine-icon {
+            background-image: url(./assets/img/mine-active.png);
+        }
     }
 </style>

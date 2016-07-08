@@ -8,6 +8,10 @@ $grey: #CCC;
 $golden: #E9D445;
 $bgGrey: #EFEEEA;
 $orange: #F69200;
+$textGrey: #6c6c6c;
+
+$font18: 18px;
+$font24: 24px;
 
 @function toPercent($n){
   @return $n * 100%;

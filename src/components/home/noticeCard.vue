@@ -75,7 +75,7 @@
         .context {
             margin-left: 10px;
             width: calc(100% - 120px);
-            color: $black;
+            color: $textGrey;
             position: relative;
             vertical-align: middle;
         }

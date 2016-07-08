@@ -52,8 +52,16 @@ export function configRouter(router) {
     });
 
     router.beforeEach(function(transition){
-        if(AuthenticateService.isAuth()) {
-            transition.next();
+        if(transition.to.query.id) {
+            window.openId = transition.to.query.id;
+        }
+        if(window.openId) {
+            AuthenticateService.isAuth(openId).then(function(){
+                transition.next();
+            }, function(){
+                router.go('bind');
+                transition.next();
+            });
         }else {
             router.go('bind');
             transition.next();

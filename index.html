@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%">
 <head>
     <meta charset='utf-8'>
     <!-- 优先使用 IE 最新版本和 Chrome -->
@@ -33,10 +33,43 @@
     <meta name="HandheldFriendly" content="true">
     <!-- windows phone 点击无高光 -->
     <meta name="msapplication-tap-highlight" content="no">
-    <title>云智教育微信项目</title>
+    <title>云智教育</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes loading
+        {
+            0% {
+                transform: rotate(0deg);
+            }
+            50%{
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .main-profile {
+            animation-name: loading;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+        }
+    </style>
 </head>
-<body>
-<div id="App"></div>
-<!-- built files will be auto injected -->
+<body style="height: 100%;">
+<div id="App" style="background: #42987c;text-align: center;width: 100%;height: 100%;">
+    <div style="padding:150px 0 0 0;">
+        <p class="main-profile">
+            <img src="src/assets/img/profile.png" style="margin: auto;">
+        </p>
+        <p>
+            <img src="src/assets/img/logo.png" style="margin: auto;">
+        </p>
+    </div>
+</div>
 </body>
 </html>

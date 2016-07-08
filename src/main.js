@@ -6,11 +6,11 @@ import 'mint-ui/lib/style.css';
 import './assets/css/app.css';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
-import { sync } from 'vuex-router-sync';
-import store from './vuex/store';
-import httpInterceptor from './service/httpInterceptor';
+import {request, response} from './service/httpInterceptor';
 import { configRouter } from './routerConfig';
 import WyFilter from './filter/wyFilter';
+
+require('es6-promise').polyfill();
 
 Vue.config.debug = true;
 
@@ -20,6 +20,11 @@ Vue.use(VueResource);
 Vue.use(WyFilter);
 /* eslint-disable no-new */
 Vue.config.devtools = true;
+Vue.http.options.emulateJSON = true;
+Vue.http.options.crossOrigin = true;
+// Vue.http.options.xhr = {withCredentials: true};
+Vue.http.options.emulateHTTP = true;
+Vue.http.interceptors.push(request, response);
 
 Vue.transition('bounce', {
     enterClass: 'fadeIn',
@@ -34,8 +39,4 @@ var router = new VueRouter({
 });
 
 configRouter(router);
-// sync(store, router);
-
-Vue.http.interceptors.push(httpInterceptor);
-
 router.start(myApp, '#App');

@@ -32,9 +32,10 @@
     .wy-input input {
         margin-left: toPercent(60 / 385);
         width: calc(74% - 23px);
-        height: 100%;
+        height: calc(100% - 10px);
         border: none;
         outline: none;
+        font-size: $font18;
     }
 </style>
 <script>

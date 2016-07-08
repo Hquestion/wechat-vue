@@ -15,6 +15,7 @@ body{
     -webkit-user-select: none;
     user-select:none;
     background: #EFEEEA;
+    color: #9c9c9c;
 }
 body .main {
     height: 100%;

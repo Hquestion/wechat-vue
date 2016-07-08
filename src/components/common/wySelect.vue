@@ -4,7 +4,7 @@
         <div class="select" v-text='selected[key]'>
             <slot>请选择</slot>
         </div>
-        <i class="icon arrow-down" @click="showOptions()"></i>
+        <i class="icon arrow-down" @click.stop="showOptions()"></i>
         <ul class="option-box" v-show='!!isOptionMode'>
             <li v-for='o in options' v-text='o[key]' @click="selectOption(o)"></li>
         </ul>
@@ -44,8 +44,9 @@
             height: 100%;
             border: none;
             outline: none;
-            color: #ccc;
+            color: #bbb;
             text-align: left;
+            font-size: $font18;
         }
         ul.option-box {
             position: absolute;
@@ -81,7 +82,12 @@
         },
         ready: function(){
             this.selected = this.options[0];
+            var that = this;
+            this.$on('DOC_CLICKED', function(){
+                that.isOptionMode = false;
+            });
         },
+
         props: ['selected', 'type', 'options', 'key'],
         methods: {
             showOptions: function(){
