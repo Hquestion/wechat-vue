@@ -44,6 +44,7 @@
         }
         .bind-btn {
             width: 100px;
+            min-width: 100px;
             height: 100px;
             line-height: 100px;
             margin: auto;
@@ -53,6 +54,9 @@
 <script>
     import wyInput from '../common/wyInput';
     import wySelect from '../common/wySelect.vue';
+    import {Toast} from 'mint-ui';
+    import httpService from '../../service/httpService';
+    import AuthService from '../../service/authenticateService';
     var relations = [{
         'id': '1',
         'name': '父亲'
@@ -72,6 +76,10 @@
                 relation: relations[0]
             }
         },
+        init(){
+            this.account = '';
+            this.password = ''
+        },
         components: {
             wyInput,
             wySelect
@@ -79,10 +87,35 @@
         methods: {
             doBind: function(){
                 //实现绑定
-                console.log(this.relation);
-                console.log(this.account);
-                console.log(this.password);
-            }
+                var that = this;
+                if(this.account.trim() === '') {
+                    Toast({
+                        message: '请输入账号！',
+                        position: 'bottom'
+                    });
+                }else if(this.password.trim() === '') {
+                    Toast({
+                        message: '请输入密码！',
+                        position: 'bottom'
+                    });
+                }else {
+                    httpService.post('/WX_bind.ashx', {
+                        Relation: this.relation.name,
+                        WXID: window.openId,
+                        UserName: this.account,
+                        Password: this.password,
+                        Source: 'yz'
+                    }).then(function(res){
+                        AuthService.updateAuth(true);
+                        AuthService.cacheUserInfo(res.data.msg).then(function(){
+                            that.$router.go('home');
+                        });
+                    }, function(res){
+                        AuthService.updateAuth(false);
+                    });
+                }
+            },
+
         }
     }
 </script>

@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: '微软雅黑','microsoft yahei';
+    -webkit-user-select: none;
+    user-select:none;
 }
 html {
     width: 100%;
@@ -15,7 +17,7 @@ body{
     -webkit-user-select: none;
     user-select:none;
     background: #EFEEEA;
-    color: #9c9c9c;
+    color: #9f9f9f;
 }
 body .main {
     height: 100%;
@@ -41,6 +43,9 @@ ul {
 }
 .text-green {
     color: #3B9A82;
+}
+.text-orange{
+    color: #F69200;
 }
 .bg-white{
     background-color: #fff;
@@ -119,18 +124,32 @@ ul {
 .row .col-12 {
     width: 100%;
 }
+.wy-btn-group {
+    display: flex;
+    justify-content: center;
+}
 .wy-btn {
     border: none;
     outline: none;
     cursor: pointer;
     text-align: center;
-}
-.wy-btn:hover{
-    box-shadow: inset 1px 1px 5px #ccc;
-}
-.wy-btn:active{
-    box-shadow: inset 2px 2px 5px #ccc;
+    min-width: 120px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
 }
 .wy-btn-radius {
     border-radius: 100%;
+}
+.wy-btn-green {
+    background: #3B9A82;
+    color: #fff;
+}
+.wy-btn-orange {
+    background: #F69200;
+    color: #fff;
+}
+.wy-btn-white{
+    background: #fff;
+    color: #6b6b6b;
 }

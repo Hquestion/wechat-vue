@@ -1,6 +1,8 @@
 <template>
     <div class="home">
-        <user-card></user-card>
+        <user-card>
+            <div class="user-center" slot='user-center' @click="goUserCenter()">个人中心</div>
+        </user-card>
         <notice-card v-for='notice in noticeList' :notice='notice'></notice-card>
         <schedule class='schedule'></schedule>
         <schedule class='schedule'></schedule>
@@ -11,6 +13,7 @@
     import userCard from './home/UserCard';
     import NoticeCard from './home/NoticeCard';
     import Schedule from './home/Schedule';
+    var feCache = require('../service/feCache');
     export default {
         data () {
             return {
@@ -52,12 +55,24 @@
         },
         ready () {
 
+        },
+        methods: {
+            goUserCenter: function(){
+                this.$router.go('mine');
+            }
         }
     }
 
 </script>
 
 <style lang="scss" scoped>
+    @import "../assets/scss/base";
+    .user-center {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: $white;
+    }
     .schedule{
         width: 90%;
         margin: auto;

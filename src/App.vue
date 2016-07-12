@@ -14,6 +14,10 @@
                 <div slot='icon' class="icon action-icon"></div>
                 动态
             </mt-tab-item>
+            <mt-tab-item id="klass"  v-link="{path: '/klass'}">
+                <div slot='icon' class="icon mine-icon"></div>
+                班级
+            </mt-tab-item>
             <mt-tab-item id="analysis" v-link="{path: '/analysis'}">
                 <div slot='icon' class="icon analysis-icon"></div>
                 分析
@@ -22,18 +26,14 @@
                 <div slot='icon' class="icon exercise-icon"></div>
                 练习
             </mt-tab-item>
-            <mt-tab-item id="mine"  v-link="{path: '/mine'}">
-                <div slot='icon' class="icon mine-icon"></div>
-                我的
-            </mt-tab-item>
         </mt-tabbar>
     </div>
 </template>
 
 <script>
-    import { initTitle } from './vuex/actions';
-    import { getAppTitle } from './vuex/getters';
     import { Indicator } from 'mint-ui';
+    var feCache = require('./service/feCache');
+    import { setUserCard } from './vuex/actions';
     export default {
         computed: {
             selected: function(){
@@ -50,6 +50,14 @@
             goBack: function(){
                 history.go(-1);
             }
+        },
+        vuex: {
+            actions: {
+                setUserCard
+            }
+        },
+        ready: function(){
+            this.setUserCard(feCache.cache.userInfo);
         }
     }
 </script>

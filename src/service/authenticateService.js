@@ -3,10 +3,11 @@
  */
 // import VueResource from 'vue-resource'
 import httpService from './httpService';
+import { cache } from './feCache';
 var isAuth;
 export default {
     isAuth : function(id){
-        console.log('authenticate...');
+        var that = this;
         return new Promise(function(resolve, reject){
             if(typeof isAuth !== 'undefined') {
                 isAuth ? resolve(true) : reject(false);
@@ -15,12 +16,24 @@ export default {
                     key: id
                 }).then(function(res){
                     isAuth = true;
-                    resolve(true);
+                    that.cacheUserInfo(res.data.msg).then(function(){
+                        resolve(true);
+                    });
                 }, function(res){
                     isAuth = false;
                     reject(false);
                 });
             }
+        });
+    },
+    updateAuth: function(boo){
+        isAuth = boo;
+    },
+    cacheUserInfo: function(id){
+        return httpService.post('/WXInterface011.ashx', {
+            userid: id
+        }).then(function(res){
+            cache.userInfo = res.data;
         });
     }
 }

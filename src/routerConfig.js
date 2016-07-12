@@ -27,6 +27,11 @@ export function configRouter(router) {
                     title: '我的动态',
                     component: require('./components/Action.vue')
                 },
+                '/klass': {
+                    name: 'klass',
+                    title: '我的班级',
+                    component: require('./components/Klass.vue')
+                },
                 '/analysis': {
                     name: 'analysis',
                     title: '分析',
@@ -56,14 +61,25 @@ export function configRouter(router) {
             window.openId = transition.to.query.id;
         }
         if(window.openId) {
+            transition.to.query.id = window.openId;
             AuthenticateService.isAuth(openId).then(function(){
                 transition.next();
             }, function(){
-                router.go('bind');
+                router.go({
+                    name: 'bind',
+                    query: {
+                        id: window.openId
+                    }
+                });
                 transition.next();
             });
         }else {
-            router.go('bind');
+            router.go({
+                name: 'bind',
+                query: {
+                    id: window.openId
+                }
+            });
             transition.next();
         }
     });

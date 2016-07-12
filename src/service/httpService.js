@@ -26,6 +26,8 @@ export default {
                 res.data = JSON.parse(res.data);
                 if(+res.data.code === 0) {
                     resolve(res);
+                }else if(!res.data.code) {
+                    resolve(res);
                 }else {
                     reject(res);
                 }

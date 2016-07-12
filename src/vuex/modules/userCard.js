@@ -1,29 +1,21 @@
 /**
  * Created by Administrator on 2016/7/7.
  */
-import { SET_USER_CARD } from '../types'
+import { SET_USER_CARD, USER_SIGN_FAIL, USER_SIGN_SUCCESS } from '../types';
+import api from '../../api';
 
 // 该模块的初始状态
 const state = {
-    user: {
-       userName: '张涵予',
-       schoolName: '南京市九龙中学',
-       className: '初三一班',
-       isVip: true,
-       points: '468',
-       vipLevel: '3',
-       isSign: false,
-       signDays: '50'
-    }
+    user: {}
 };
 
 // 相关的 mutations
 const mutations = {
     [SET_USER_CARD] (state, user) {
-        if(!user.isSign) {
-            user.isSign = true;
-        }
-        state.user = user;
+        state.user = Object.assign({}, state.user, user);
+    },
+    [USER_SIGN_SUCCESS](state, user) {
+        state.user = {...state.user, signDays: (state.user.signDays || 0) + 1, isSign: true};
     }
 };
 

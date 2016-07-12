@@ -1,55 +1,78 @@
 <template>
     <article class="user-card">
+        <slot name='user-center'></slot>
         <div class="card-box clearfix">
             <div class="avtar pull-left">
-                <img src="../../assets/img/avtar.png">
+                <img src="../../assets/img/avtar.png" :src='user.logo'>
             </div>
             <div class="info pull-left">
                 <div class="name-box">
-                    <span class="user-name" v-text='user.userName'></span>
-                    <img src="../../assets/img/vip.png" ng-show='user.isVip'>
+                    <span class="user-name" v-text='user.username'></span>
+                    <img src="../../assets/img/vip.png" v-show='user.isVip'>
                 </div>
                 <p>
                     <span v-text='user.schoolName'></span><span class="point"></span><span v-text='user.className'></span>
                 </p>
                 <p>
-                    积分：<span v-text='user.points'></span><span class="vip-level" v-text='vipLevelText'></span>
+                    积分：<span v-text='user.point || 0'></span><span class="vip-level" v-text='vipLevelText'></span>
                 </p>
             </div>
         </div>
-        <p class="sign-box" @click='setUserCard(user)'>
-            <span v-show='user.isSign'>已签到</span>
-            <span v-show='!user.isSign'>未签到</span>
-            （已连续签到<span v-text='user.signDays'></span>天）
-        </p>
+        <slot name='btns'>
+            <p class="sign-box" @click='sign(user)'>
+                <span v-show='!!user.isSign'>已签到</span>
+                <span v-show='!user.isSign'>未签到</span>
+                （已连续签到<span v-text='user.signDays || 0'></span>天）
+            </p>
+        </slot>
+        <wy-dialog :modal.sync='modal' :show.sync='showDailog'>
+            <img slot='header' src="../../assets/img/dialog-logo.png">
+            <div slot='body'>
+                <p>恭喜您，连续签到<span v-text='user.SignDays'></span>天，积分奖励<span v-text='user.SignDays'></span>分</p>
+                <p>累计签到：<span>338</span>天</p>
+                <p>签到排名：今日本班第<span>14</span>名签到</p>
+            </div>
+            <span slot='tip'>小提示：连续签到每多一天，积分额外多加1分</span>
+        </wy-dialog>
     </article>
 </template>
 <script>
     import { getUserCardInfo } from '../../vuex/getters';
-    import { setUserCard } from '../../vuex/actions';
+    import { setUserCard, userSign } from '../../vuex/actions';
+    import wyDialog from '../common/wyDialog.vue';
     export default{
         data(){
             return{
-                user: {}
+                user: {},
+                modal: {},
+                showDailog: false
             }
         },
         computed: {
             vipLevelText: function(){
-                return 'LV' + this.user.vipLevel;
+                return this.user.vipLevel ? 'LV' + this.user.vipLevel : '';
             },
             user: function(){
                 return this.$store.state.userCard.user
             }
         },
         components:{
-            
+            wyDialog
         },
         vuex: {
-//            getters: {
-//                user: getUserCardInfo
-//            },
             actions: {
-                setUserCard
+                setUserCard,
+                userSign
+            }
+        },
+        methods: {
+            sign: function(user){
+                var that = this;
+                if(!user.isSign) {
+                    this.userSign(user).then(function(){
+                        that.showDailog = true;
+                    });
+                }
             }
         }
     }
@@ -57,10 +80,12 @@
 <style lang='scss' scoped>
     @import '../../assets/scss/base';
     .user-card {
-        background: $green;
+        background-image: url(../../assets/img/profile-bg.png);
+        background-size: 100% 100%;
         width: 100%;
         height: 250px;
-        color: #fff;
+        color: $textDrak;
+        position: relative;
         .card-box {
             width: 90%;
             margin: auto;
@@ -91,7 +116,7 @@
                         display: inline-block;
                         width: 5px;
                         height: 5px;
-                        background: $white;
+                        background: $textDrak;
                         border-radius: 5px;
                         margin: 5px;
                     }
