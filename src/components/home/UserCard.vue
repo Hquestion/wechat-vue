@@ -102,7 +102,7 @@
                 padding: 0 10px;
                 vertical-align: bottom;
                 .name-box {
-                    font-size: 28px;
+                    font-size: 28 / $baseFontSize + rem;
                     vertical-align: text-bottom;
                     line-height: 1;
                     img{
@@ -122,7 +122,7 @@
                     }
                     span.vip-level {
                         margin-left: 10px;
-                        font-size: 18px;
+                        font-size: 1rem;
                         color: $golden;
                     }
                 }

@@ -11,6 +11,11 @@ html {
     height: 100%;
     font-size: 18px;
 }
+@media screen and (max-width: 375px) {
+    html {
+        font-size: 16px;
+    }
+}
 body{
     width: 100%;
     height: 100%;
@@ -18,6 +23,7 @@ body{
     user-select:none;
     background: #EFEEEA;
     color: #9f9f9f;
+    font-size: 0.875rem;
 }
 body .main {
     height: 100%;
@@ -129,14 +135,15 @@ ul {
     justify-content: center;
 }
 .wy-btn {
-    border: none;
     outline: none;
     cursor: pointer;
     text-align: center;
-    min-width: 120px;
+    min-width: 100px;
     height: 40px;
     line-height: 40px;
     border-radius: 40px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
 }
 .wy-btn-radius {
     border-radius: 100%;

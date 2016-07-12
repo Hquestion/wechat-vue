@@ -2,10 +2,9 @@
  * Created by Administrator on 2016/7/1.
  */
 import { Indicator } from 'mint-ui';
-let loadingTimer = null;
+var loadingTimer = null;
 
 export const request = function(req, next){
-    clearTimeout(loadingTimer);
     Indicator.open({
         text: '拼命加载中...',
         spinnerType: 'fading-circle'
@@ -14,8 +13,10 @@ export const request = function(req, next){
 };
 
 export const response = function(res, next){
+
     clearTimeout(loadingTimer);
-    loadingTimer = setTimeout(function(){
+    loadingTimer = setTimeout(()=>{
+        console.log('response...');
         Indicator.close();
     }, 300);
     next();

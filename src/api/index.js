@@ -7,5 +7,8 @@ export default {
         return new Promise(function(resolve, reject){
             resolve(user);
         });
+    },
+    getUserUseInfo: function(){
+        return httpService.post('/WXInterface037.ashx');
     }
 }

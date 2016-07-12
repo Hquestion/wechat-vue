@@ -92,7 +92,7 @@
             p.tip {
                 color: $grey;
                 text-align: center;
-                font-size: 14px;
+                font-size: 14 / $baseFontSize + rem;
                 margin-top: 10px;
             }
             footer {

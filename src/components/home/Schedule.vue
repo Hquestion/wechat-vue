@@ -46,7 +46,7 @@
         header{
             width: 90%;
             margin: auto;
-            font-size: 16px;
+            font-size: 16/ 18 +rem;
             padding: 20px 0 10px;
         }
         .am {

@@ -8,6 +8,8 @@
             </div>
         </user-card>
         <use-info></use-info>
+        <achievement></achievement>
+        <achievement-detail></achievement-detail>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -19,15 +21,28 @@
 <script>
     import UserCard from './home/UserCard.vue';
     import UseInfo from './mine/UseInfo.vue';
+    import Achievement from './mine/Achievement.vue';
+    import AchievementDetail from './mine/AchievementDetail.vue';
+    import { getUserAchievement } from '../vuex/actions';
     export default{
         data(){
             return{
-                msg:'hello vue'
+
             }
         },
         components:{
             UserCard,
-            UseInfo
+            UseInfo,
+            Achievement,
+            AchievementDetail
+        },
+        vuex: {
+            actions: {
+                getUserAchievement
+            }
+        },
+        ready () {
+            this.getUserAchievement();
         }
     }
 </script>
