@@ -6,12 +6,12 @@
         </header>
         <article>
             <ul>
-                <li v-for='sd in studyDetail' class="row">
-                    <div class="subject-logo col-3 pull-left">
+                <li v-for='sd in studyDetail' class="row clearfix">
+                    <div class="subject-logo col-2 pull-left">
                         <div><img :src="sd.logo"></div>
-                        <p v-text='sd.SubjectName'></p>
+                        <p v-text='sd.SubjectName' :style='{color: sd.color}'></p>
                     </div>
-                    <div class="subject-desc col-9 pull-left">
+                    <div class="subject-desc col-10 pull-left">
                         <p v-text='sd.Desc'></p>
                     </div>
                 </li>
@@ -35,6 +35,7 @@
                 var analysis = this.$store.state.userAchievement.achievement.msg;
                 analysis.forEach(function(item){
                     item.logo = config.subjectIconMap[item.SubjectName];
+                    item.color = config.subjectColorMap[item.SubjectName];
                 });
                 return analysis;
             }
@@ -61,8 +62,16 @@
                 background: $white;
                 border: 1px solid $grey;
                 margin-top: 10px;
+                display: flex;
+                align-items: center;
+                &:first-child {
+                    margin-top: 0;
+                }
                 .subject-logo {
                     text-align: center;
+                }
+                .subject-desc {
+                    padding: 0 10px;
                 }
             }
         }

@@ -6,7 +6,7 @@
         </header>
         <article>
             <ul>
-                <li v-for='sd in studyDetail' class="row">
+                <li v-for='sd in studyDetail' class="row clearfix">
                     <div v-text='sd.SubjectName' class="tag col-2 pull-left"></div>
                     <div class="col-3 pull-left">
                         <span>高于</span>全班<span v-text='sd.SubjectBeatRate'></span>%

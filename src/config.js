@@ -23,5 +23,17 @@ export default {
         '生物': biologyImg,
         '物理': physicsImg,
         '化学': chemistryImg
+    },
+    subjectColorMap: {
+        '语文': '#44B9EE',
+        '数学': '#2FA08B',
+        '英语': '#F49E2F',
+        '历史': '#F26D6E',
+        '地理': '#44B9EE',
+        '政治': '#44B9EE',
+        '生物': '#2FA08B',
+        '物理': '#F26D6E',
+        '化学': '#2FA08B'
     }
+
 }
