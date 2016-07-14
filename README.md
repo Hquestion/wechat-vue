@@ -1,6 +1,22 @@
 # wechat
 
-> A Vue.js project
+> 51教育服务微信项目
+
+## Develope with
+
+> Vue.js
+
+> Vue-router
+
+> Vue-resource
+
+> Mint-UI
+
+> Babel
+
+> Webpack
+
+> Npm
 
 ## Build Setup
 
