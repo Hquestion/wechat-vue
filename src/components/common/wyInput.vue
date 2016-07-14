@@ -5,6 +5,16 @@
         <input type="password" :placeholder="placeholder" v-model="val" v-if="type==='pwd'">
     </div>
 </template>
+<script>
+    export default{
+        data(){
+            return{
+                val: ''
+            }
+        },
+        props: ['placeholder', 'val', 'type']
+    }
+</script>
 <style lang="scss" scoped>
     @import '../../assets/scss/base';
     .wy-input {
@@ -15,6 +25,7 @@
         margin: auto;
         background: #fff;
         border-radius: 65px;
+        border: 1px solid #ccc;
     }
     .wy-input i.icon {
         width: 23px;
@@ -35,16 +46,6 @@
         height: calc(100% - 10px);
         border: none;
         outline: none;
-        font-size: $font18;
+        font-size: $font24;
     }
 </style>
-<script>
-    export default{
-        data(){
-            return{
-                val: ''
-            }
-        },
-        props: ['placeholder', 'val', 'type']
-    }
-</script>

@@ -13,10 +13,8 @@ export const request = function(req, next){
 };
 
 export const response = function(res, next){
-
     clearTimeout(loadingTimer);
     loadingTimer = setTimeout(()=>{
-        console.log('response...');
         Indicator.close();
     }, 300);
     next();

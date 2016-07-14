@@ -10,6 +10,36 @@
         </ul>
     </div>
 </template>
+<script>
+    export default{
+        data(){
+            return{
+                isOptionMode: false,
+                selected: this.options[0]
+            }
+        },
+        components:{
+            
+        },
+        ready: function(){
+            this.selected = this.options[0];
+            var that = this;
+            this.$on('DOC_CLICKED', function(){
+                that.isOptionMode = false;
+            });
+        },
+        props: ['selected', 'type', 'options', 'key'],
+        methods: {
+            showOptions: function(){
+                this.isOptionMode = !this.isOptionMode;
+            },
+            selectOption: function(o){
+                this.isOptionMode = false;
+                this.selected = o;
+            }
+        }
+    }
+</script>
 <style lang='scss' scoped>
     @import '../../assets/scss/base';
     .wy-select {
@@ -21,6 +51,7 @@
         margin: auto;
         background: #fff;
         border-radius: 65px;
+        border: 1px solid #ccc;
         i.icon{
             width: 26px;
             height: 25px;
@@ -46,7 +77,7 @@
             outline: none;
             color: #bbb;
             text-align: left;
-            font-size: $font18;
+            font-size: $font24;
         }
         ul.option-box {
             position: absolute;
@@ -62,6 +93,7 @@
                 line-height: 65px;
                 text-align: left;
                 border-top: 1px solid #ccc;
+                font-size: $font24;
                 &:first-child {
                     border-top: none;
                 }
@@ -69,34 +101,3 @@
         }
     }
 </style>
-<script>
-    export default{
-        data(){
-            return{
-                isOptionMode: false,
-                selected: this.options[0]
-            }
-        },
-        components:{
-            
-        },
-        ready: function(){
-            this.selected = this.options[0];
-            var that = this;
-            this.$on('DOC_CLICKED', function(){
-                that.isOptionMode = false;
-            });
-        },
-
-        props: ['selected', 'type', 'options', 'key'],
-        methods: {
-            showOptions: function(){
-                this.isOptionMode = !this.isOptionMode;
-            },
-            selectOption: function(o){
-                this.isOptionMode = false;
-                this.selected = o;
-            }
-        }
-    }
-</script>

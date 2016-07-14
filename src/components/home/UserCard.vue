@@ -83,22 +83,25 @@
         background-image: url(../../assets/img/profile-bg.png);
         background-size: 100% 100%;
         width: 100%;
-        height: 250px;
+        height: 13.8889rem;
         color: $textDrak;
         position: relative;
         .card-box {
             width: 90%;
             margin: auto;
-            padding-top: 50px;
+            padding-top: 2.7778rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             .avtar {
-                width: 120px;
-                padding: 0 10px;
+                width: 6.6667rem;
+                padding: 0 0.555rem;
                 img{
-                    width: 100px;
+                    width: 5.5556rem;
                 }
             }
             .info {
-                width: calc(100% - 120px);
+                max-width: calc(100% - 6.6667rem);
                 padding: 0 10px;
                 vertical-align: bottom;
                 .name-box {
@@ -136,7 +139,7 @@
             color: #666;
             border: 1px solid #696969;
             border-radius: 1em;
-            background: #dedede;
+            background: $white;
             margin-top: 20px;
             position: relative;
             left: 50%;

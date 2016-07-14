@@ -3,11 +3,9 @@
  */
 export default {
     deepCopy: function(arr){
-        "use strict";
         return JSON.parse(JSON.stringify(arr));
     },
     pluck: function(arr, key){
-        "use strict";
         return arr.map(function(item){
             return item[key];
         });

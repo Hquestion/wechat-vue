@@ -7,7 +7,7 @@
             </div>
         </div>
         <p>您已经使用51教育服务<span class="text-orange" v-text='user.UseDays'></span>天，总成绩提升<span class="text-orange" v-text='user.AllBeatRate'></span>分，
-            击败了<span class="text-orange" v-text='user.AllUpSc'></span>的同学，再接再励！</p>
+            击败了<span class="text-orange" v-text='user.AllUpSc'></span>%的同学，再接再励！</p>
     </div>
 </template>
 <script>
@@ -29,8 +29,8 @@
         .days {
             margin: auto;
             padding-top: 15px;
-            width: 120px;
-            height: 120px;
+            width: 6.6667rem;
+            height: 6.6667rem;
             border-radius: 100%;
             border: 5px solid $grey;
             p{

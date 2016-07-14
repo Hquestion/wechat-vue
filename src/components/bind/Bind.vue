@@ -6,6 +6,7 @@
         <p class="logo">
             <img src="../../assets/img/logo.png">
         </p>
+        <p class="tip">使用云智教育大数据服务之前请先绑定账号</p>
         <div class="row">
             <wy-select type='relation' :options='relations' key='name' :selected.sync='relation'></wy-select>
         </div>
@@ -27,20 +28,24 @@
         height: 100%;
         overflow: auto;
         text-align: center;
-        background-color: #41b29c;
-        padding-top: 30px;
-        padding-bottom: 50px;
+        background-image: url(../../assets/img/bind-bg.png);
+        background-size: contain;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
         p.profile > img{
             width: toPercent(124 / 525);
         }
         p.logo > img{
             width: toPercent(206 / 525);
         }
+        p.tip {
+            margin-top: 1.5rem;
+        }
         .row {
-            margin-top: 30px;
+            margin-top: 1.5rem;
         }
         .row.btn {
-            margin-top: 50px;
+            margin-top: 2.8rem;
         }
         .bind-btn {
             width: 100px;
@@ -48,6 +53,7 @@
             height: 100px;
             line-height: 100px;
             margin: auto;
+            font-size: $font24;
         }
     }
 </style>

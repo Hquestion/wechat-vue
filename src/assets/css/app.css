@@ -143,10 +143,10 @@ ul {
     outline: none;
     cursor: pointer;
     text-align: center;
-    min-width: 100px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 40px;
+    min-width: 5.5556rem;
+    height: 2.222rem;
+    line-height: 2.222rem;
+    border-radius: 2.222rem;
     padding: 0 10px;
     border: 1px solid #ccc;
 }

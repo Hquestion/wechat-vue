@@ -10,7 +10,6 @@ Vue.use(VueResource);
 
 Vue.http.options.emulateJSON = true;
 Vue.http.options.crossOrigin = true;
-// Vue.http.options.xhr = {withCredentials: true};
 Vue.http.options.emulateHTTP = true;
 Vue.http.interceptors.push(request, response);
 
@@ -37,7 +36,6 @@ export default {
         });
     },
     get: function(url, data){
-        "use strict";
 
     }
 }

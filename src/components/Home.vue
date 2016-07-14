@@ -1,7 +1,9 @@
 <template>
     <div class="home">
         <user-card>
-            <div class="user-center" slot='user-center' @click="goUserCenter()">个人中心</div>
+            <div class="user-center" slot='user-center' @click="goUserCenter()">
+                <img src='../assets/img/account.png'>个人中心
+            </div>
         </user-card>
         <notice-card v-for='notice in noticeList' :notice='notice'></notice-card>
         <schedule class='schedule'></schedule>
@@ -71,7 +73,16 @@
         position: absolute;
         right: 10px;
         top: 10px;
-        color: $white;
+        color: $textDrak;
+        display: flex;
+        align-items: center;
+        background: $white;
+        border-radius: 1em;
+        padding: 5px 10px;
+        img{
+            height: 1em;
+            margin-right: 0.5em;
+        }
     }
     .schedule{
         width: 90%;
