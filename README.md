@@ -18,6 +18,8 @@
 
 > Npm
 
+> Vuex
+
 ## Build Setup
 
 ``` bash
