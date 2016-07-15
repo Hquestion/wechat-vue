@@ -18,8 +18,8 @@ export function configRouter(router) {
             subRoutes: {
                 '/': {
                     name: 'home',
-                    title: '主页',
-                    hideTitle: true,
+                    title: '云智教育服务',
+                    hideBack: true,
                     component: require('./components/Home')
                 },
                 '/action': {
@@ -44,8 +44,13 @@ export function configRouter(router) {
                 },
                 '/mine': {
                     name: 'mine',
-                    title: '我的',
+                    title: '我的个人中心',
                     component: require('./components/Mine.vue')
+                },
+                '/error-note': {
+                    name: 'errorNote',
+                    title: '我的错题本',
+                    component: require('./components/errorNote/ErrorNote.vue')
                 }
             }
         }

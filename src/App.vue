@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <mt-header :title="pageTitle" fixed :class="{hide: hideHeader}">
-            <mt-button icon="back" slot="left" @click="goBack()">返回</mt-button>
+            <mt-button icon="back" slot="left" @click="goBack()" v-show='!hideBack'>返回</mt-button>
             <mt-button icon="more" slot="right"></mt-button>
         </mt-header>
         <router-view class="view animated" keep-alive transition="bounce" :class="{'hide-header': hideHeader}"></router-view>
@@ -44,6 +44,9 @@
             },
             hideHeader: function(){
                 return !!this.$route.hideTitle;
+            },
+            hideBack: function(){
+                return !!this.$route.hideBack;
             }
         },
         methods: {

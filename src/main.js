@@ -6,6 +6,7 @@ import 'mint-ui/lib/style.css';
 import './assets/css/app.css';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+import VueTouch from 'vue-touch';
 import {request, response} from './service/httpInterceptor';
 import { configRouter } from './routerConfig';
 import WyFilter from './filter/wyFilter';
@@ -17,6 +18,7 @@ Vue.config.debug = true;
 Vue.use(MintUI);
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(VueTouch);
 Vue.use(WyFilter);
 /* eslint-disable no-new */
 Vue.config.devtools = true;

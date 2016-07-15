@@ -48,6 +48,7 @@
     "vue-resource": "^0.9.1",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
+    "vue-touch": "^1.1.0",
     "vuex": "^0.8.0",
     "vuex-router-sync": "^1.0.0",
     "webpack": "^1.12.2",
