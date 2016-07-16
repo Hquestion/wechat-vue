@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import userCard from './home/UserCard';
+    import UserCard from './home/UserCard';
     import NoticeCard from './home/NoticeCard';
     import Schedule from './home/Schedule';
     var feCache = require('../service/feCache');
@@ -51,7 +51,7 @@
             }
         },
         components: {
-            userCard,
+            UserCard,
             NoticeCard,
             Schedule
         },

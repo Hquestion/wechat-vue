@@ -2,7 +2,6 @@
  * Created by Administrator on 2016/7/7.
  */
 import { SET_USER_CARD, USER_SIGN_FAIL, USER_SIGN_SUCCESS } from '../types';
-import api from '../../api';
 
 // 该模块的初始状态
 const state = {

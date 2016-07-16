@@ -113,7 +113,7 @@
                         Source: 'yz'
                     }).then(function(res){
                         AuthService.updateAuth(true);
-                        AuthService.cacheUserInfo(res.data.msg).then(function(){
+                        AuthService.cacheUserInfo(res.msg).then(function(){
                             that.$router.go('home');
                         });
                     }, function(res){

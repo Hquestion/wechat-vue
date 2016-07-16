@@ -10,5 +10,14 @@ export default {
     },
     getUserUseInfo: function(){
         return httpService.post('/WXInterface037.ashx');
+    },
+    getSubjects: function(){
+        return httpService.post('/WXInterface031.ashx');
+    },
+    getErrorQuestionsBySubject: function(subjectId, page){
+        return httpService.post('/WXInterface002.ashx', {
+            CurPage: page || 1,
+            SubjectId: subjectId
+        });
     }
 }

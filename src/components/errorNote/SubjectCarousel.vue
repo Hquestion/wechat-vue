@@ -4,7 +4,7 @@
         <div class='subjects pull-left' :style='{width: boxStyle+"px"}'>
             <ul class="clearfix" :style='{width: ulWidth+"px", left: listPos+"px"}'>
                 <li v-for='sbj in subjectList' :style='{width: itemStyle+"px"}' @click='selectSubject(sbj)'
-                    :class='{active: currentSubject.subjectName === sbj.subjectName}'>
+                    :class='{active: currentSubject[key] === sbj[key]}'>
                     <span v-text='sbj[key]'></span>
                     <span v-text='sbj.num'></span>
                 </li>
@@ -19,22 +19,27 @@
     export default{
         data(){
             return{
-                currentIndex: NUMBER_PER_PAGE - 1
+                currentIndex: NUMBER_PER_PAGE - 1,
+                currentSubject: {}
             }
         },
-        props:['subjectList', 'currentSubject', 'key'],
+        props: {
+            subjectList: Array,
+            currentSubject: Object,
+            key: String
+        },
         computed: {
             startIndex: function(){
                 return NUMBER_PER_PAGE - 1;
             },
             totalNum: function(){
-                return this.subjectList.length;
+                return this.subjectList && this.subjectList.length;
             },
             isFirst: function(){
-                return this.currentIndex === this.startIndex;
+                return this.currentIndex <= this.startIndex;
             },
             isLast: function(){
-                return this.currentIndex === this.totalNum - 1;
+                return this.currentIndex >= this.totalNum - 1;
             },
             boxStyle: function(){
                 var width = window.innerWidth;
@@ -55,13 +60,15 @@
                 return this.itemStyle * this.subjectList.length;
             },
             listPos: function(){
-                return -1 * (this.currentIndex - (NUMBER_PER_PAGE - 1)) * this.itemStyle;
+                var offset = this.currentIndex - (NUMBER_PER_PAGE - 1);
+                offset = offset < 0 ? 0 : offset;
+                return -1 * offset * this.itemStyle;
             }
         },
         methods: {
             pre: function(){
                 var preVal = this.currentIndex - NUMBER_PER_PAGE;
-                if(preVal <= NUMBER_PER_PAGE - 1) {
+                if(preVal <= NUMBER_PER_PAGE - 1 || preVal < 0) {
                     this.currentIndex = NUMBER_PER_PAGE - 1;
                 }else {
                     this.currentIndex = preVal;
@@ -76,7 +83,7 @@
                 }
             },
             selectSubject: function(sbj){
-                this.$set('currentSubject', sbj);
+                this.currentSubject = Object.assign({}, sbj);
             }
         }
     }
@@ -102,9 +109,11 @@
         }
         .subjects {
             overflow: hidden;
+            min-width: 100%;
             ul {
                 position: relative;
                 transition: left ease .3s;
+                min-width: 100%;
                 li{
                     float: left;
                     border-right: 1px solid $grey;

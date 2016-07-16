@@ -24,14 +24,14 @@ export default {
             }).then(function(res){
                 res.data = JSON.parse(res.data);
                 if(+res.data.code === 0) {
-                    resolve(res);
+                    resolve(res.data);
                 }else if(!res.data.code) {
-                    resolve(res);
+                    resolve(res.data);
                 }else {
-                    reject(res);
+                    reject(res.data);
                 }
             }, function(res){
-                reject(res);
+                reject(res.data);
             });
         });
     },

@@ -10,6 +10,7 @@ import * as actions from './actions'
 import app from './modules/app';
 import userCard from './modules/userCard';
 import userAchievement from './modules/userAchievement';
+import errorNote from './modules/errorNote';
 
 Vue.use(Vuex);
 
@@ -20,7 +21,8 @@ export default new Vuex.Store({
         // products
         app,
         userCard,
-        userAchievement
+        userAchievement,
+        errorNote
     },
     strict: true,
     plugins: []

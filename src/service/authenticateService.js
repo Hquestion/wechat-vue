@@ -16,7 +16,7 @@ export default {
                     key: id
                 }).then(function(res){
                     isAuth = true;
-                    that.cacheUserInfo(res.data.msg).then(function(){
+                    that.cacheUserInfo(res.msg).then(function(){
                         resolve(true);
                     });
                 }, function(res){
@@ -33,7 +33,7 @@ export default {
         return httpService.post('/WXInterface011.ashx', {
             userid: id
         }).then(function(res){
-            cache.userInfo = res.data;
+            cache.userInfo = res;
         });
     }
 }
