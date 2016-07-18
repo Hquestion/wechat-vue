@@ -9,7 +9,7 @@
             <p>今天的补偿作业已经更新，预计能帮助你下周周测提高10分，点击开始测试。</p>
             <p class="t-center">（周一至周五每天17:00系统自动推送）</p>
         </article>
-        <article id='fix-error'>
+        <article id='fix-error' v-link='{name: "errorFix"}'>
             <div class="title t-center">
                 <img src="../assets/img/error-fix.png">
                 <span>错哪补哪</span>
@@ -48,6 +48,7 @@
     .title {
         font-size: 1.33rem;
         img{
+            width:2rem;
             vertical-align: middle;
         }
     }

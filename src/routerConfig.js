@@ -64,6 +64,12 @@ export function configRouter(router) {
                     title: '同题检测',
                     belong: 'exercise',
                     component: require('./components/exercise/SameQuestionTest.vue')
+                },
+                '/error-fix': {
+                    name: 'errorFix',
+                    title: '错哪补哪',
+                    belong: 'exercise',
+                    component: require('./components/exercise/ErrorFix.vue')
                 }
             }
         }

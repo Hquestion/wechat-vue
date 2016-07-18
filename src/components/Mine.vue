@@ -52,5 +52,8 @@
     .wy-btn-group {
         margin-top: 20px;
         justify-content: space-around;
+        .wy-btn {
+            width: 30%;
+        }
     }
 </style>
