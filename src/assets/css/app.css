@@ -27,7 +27,7 @@ body{
     -webkit-user-select: none;
     user-select:none;
     background: #EFEEEA;
-    color: #9f9f9f;
+    color: #404040;
     font-size: 0.875rem;
 }
 body .main {
@@ -162,6 +162,10 @@ ul {
 }
 .wy-btn-orange {
     background: #F69200;
+    color: #fff;
+}
+.wy-btn-default {
+    background: #ccc;
     color: #fff;
 }
 .wy-btn-white{

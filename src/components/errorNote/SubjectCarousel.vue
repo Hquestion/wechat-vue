@@ -46,7 +46,7 @@
                 var arrowWidth = 0;
                 if(!this.isFirst && !this.isLast) {
                     arrowWidth = ARROW_WIDTH * 2;
-                }else if(this.isFirst || this.isLast) {
+                }else if(!this.isFirst || !this.isLast) {
                     arrowWidth = ARROW_WIDTH;
                 }else {
                     arrowWidth = 0;
@@ -54,7 +54,8 @@
                 return width - arrowWidth;
             },
             itemStyle: function(){
-                return this.boxStyle / NUMBER_PER_PAGE;
+                var count = Math.min(this.totalNum, NUMBER_PER_PAGE);
+                return this.boxStyle / count;
             },
             ulWidth: function(){
                 return this.itemStyle * this.subjectList.length;
@@ -126,6 +127,7 @@
                     &.active{
                         background: $white;
                         border-bottom: none;
+                        height: 41px;
                     }
                 }
             }

@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2016/7/5.
  */
-import { INIT_TITLE, SET_USER_CARD , USER_SIGN_FAIL, USER_SIGN_SUCCESS, GET_USER_ACHIEVEMENT, GET_SUBJECTS, GET_ERROR_QUESTIONS} from './types';
+import { INIT_TITLE, SET_USER_CARD , USER_SIGN_FAIL, USER_SIGN_SUCCESS, GET_USER_ACHIEVEMENT,
+    GET_SUBJECTS, GET_ERROR_QUESTIONS_SUCCESS,GET_ERROR_QUESTIONS_FAIL,REMOVE_QST_SUCCESS, REMOVE_QST_FAIL} from './types';
 import api from '../api';
 
 export const initTitle = ({dispatch}, title) => {
@@ -34,9 +35,16 @@ export const getSubjectList = ({dispatch}) => {
 
 export const getErrorQuestions = ({dispatch}, subjectId) => {
     return api.getErrorQuestionsBySubject(subjectId).then(function(res){
-        console.log(res);
-        dispatch(GET_ERROR_QUESTIONS, res);
+        dispatch(GET_ERROR_QUESTIONS_SUCCESS, res);
     }, function(res){
-        console.log(res);
+        dispatch(GET_ERROR_QUESTIONS_FAIL, res);
+    });
+};
+
+export const removeQstFromErrorNote = ({dispatch}, questionId) => {
+    return api.removeQstFromErrorQustions(questionId).then(function(res){
+        dispatch(REMOVE_QST_SUCCESS, res);
+    }, function(res){
+        dispatch(REMOVE_QST_FAIL, res);
     });
 };

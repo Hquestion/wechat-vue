@@ -37,7 +37,7 @@
     export default {
         computed: {
             selected: function(){
-                return this.$route.name;
+                return this.$route.belong;
             },
             pageTitle: function(){
                 return this.$route.title;

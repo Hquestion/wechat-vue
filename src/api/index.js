@@ -19,5 +19,10 @@ export default {
             CurPage: page || 1,
             SubjectId: subjectId
         });
+    },
+    removeQstFromErrorQustions: function(id){
+        return new Promise(function(resolve, reject){
+            resolve(id);
+        });
     }
 }

@@ -35,7 +35,8 @@ Vue.transition('bounce', {
 
 var myApp = Vue.extend(Main);
 var router = new VueRouter({
-    history: true,
+    hashbang: true,
+    history: false,
     saveScrollPosition: false,
     transitionOnLoad: true
 });

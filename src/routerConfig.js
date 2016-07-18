@@ -20,37 +20,50 @@ export function configRouter(router) {
                     name: 'home',
                     title: '云智教育服务',
                     hideBack: true,
+                    belong: 'home',
                     component: require('./components/Home')
                 },
                 '/action': {
                     name: 'action',
                     title: '我的动态',
+                    belong: 'action',
                     component: require('./components/Action.vue')
                 },
                 '/klass': {
                     name: 'klass',
                     title: '我的班级',
+                    belong: 'klass',
                     component: require('./components/Klass.vue')
                 },
                 '/analysis': {
                     name: 'analysis',
                     title: '分析',
+                    belong: 'analysis',
                     component: require('./components/Analysis.vue')
                 },
                 '/exercise': {
                     name: 'exercise',
                     title: '练习',
+                    belong: 'exercise',
                     component: require('./components/Exercise')
                 },
                 '/mine': {
                     name: 'mine',
                     title: '我的个人中心',
+                    belong: 'home',
                     component: require('./components/Mine.vue')
                 },
                 '/error-note': {
                     name: 'errorNote',
                     title: '我的错题本',
+                    belong: 'exercise',
                     component: require('./components/errorNote/ErrorNote.vue')
+                },
+                '/same-qst-test/:questionId': {
+                    name: 'sameQuestionTest',
+                    title: '同题检测',
+                    belong: 'exercise',
+                    component: require('./components/exercise/SameQuestionTest.vue')
                 }
             }
         }

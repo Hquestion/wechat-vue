@@ -24,8 +24,15 @@
     }
 </script>
 <style lang='scss' scoped>
+    .question-card {
+        padding: 10px;
+    }
     p {
         text-align: center;
+        padding: 5px 0;
+    }
+    .row {
+        padding: 0 0 10px 0;
     }
     .q-detail {
         padding: 10px;

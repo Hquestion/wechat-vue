@@ -18,5 +18,12 @@
     }
 </script>
 <style lang='scss' scoped>
-    
+    @import '../../assets/scss/base';
+    .error-qsts {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        overflow-scrolling: touch;
+        background: $white;
+    }
 </style>
