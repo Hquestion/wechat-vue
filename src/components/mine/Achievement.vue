@@ -60,6 +60,7 @@
             background: $white;
             text-align: center;
             font-size: 0.77rem;
+            border: 1px solid $grey;
             .row{
                 padding: 3px 0;
                 .tag {

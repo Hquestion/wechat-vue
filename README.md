@@ -37,8 +37,8 @@ npm run build
 
 ##Router Config解读
 ###name
->路由名称，可以通过name跳转路由
+路由名称，可以通过name跳转路由
 ###title
->设置页面标题
+设置页面标题
 ###belong
->设置页面导航焦点，匹配导航菜单id：home,action,klass,analysis,exercise
+设置页面导航焦点，匹配导航菜单id：home,action,klass,analysis,exercise

@@ -46,6 +46,9 @@
     }
 </script>
 <style lang="scss" scoped>
+    .mine {
+        background: #efefef;
+    }
     .wy-btn-group {
         margin-top: 20px;
         justify-content: space-around;

@@ -16,7 +16,7 @@
             </div>
             <p class="t-center">已进行<span>29</span>次练习</p>
         </article>
-        <article id='error-note'>
+        <article id='error-note' v-link='{name: "errorNote"}'>
             <div class="title t-center">
                 <img src="../assets/img/error-book.png">
                 <span>我的错题本</span>
@@ -34,6 +34,9 @@
         },
         components:{
             
+        },
+        computed: {
+
         }
     }
 </script>
