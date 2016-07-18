@@ -1,4 +1,4 @@
-# wechat
+# 51jyfw-wechat
 
 > 51教育服务微信项目
 
@@ -9,6 +9,8 @@
 > Vue-router
 
 > Vue-resource
+
+> Vue-touch
 
 > Mint-UI
 
@@ -31,17 +33,12 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 ##Router Config解读
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+###name
+>路由名称，可以通过name跳转路由
+###title
+>设置页面标题
+###belong
+>设置页面导航焦点，匹配导航菜单id：home,action,klass,analysis,exercise
